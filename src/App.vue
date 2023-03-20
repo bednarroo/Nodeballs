@@ -3,6 +3,7 @@
 
 <template>
 Hello word!
+<RouterView></RouterView>
 </template>
 
 <style scoped>

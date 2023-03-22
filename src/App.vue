@@ -1,10 +1,14 @@
 <script setup>
+import Footer from '@/components/Footer.vue'
+import Navbar from '@/components/Navbar.vue'
 </script>
 
 <template>
-Hello word!
+<Navbar></Navbar>
 <RouterView></RouterView>
+<Footer></Footer>
 </template>
 
-<style scoped>
+<style lang = "scss">
+@import "bulma/css/bulma.css";
 </style>

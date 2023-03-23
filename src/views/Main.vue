@@ -1,11 +1,10 @@
 <template>
-    <h1>Main</h1>
+  
+  <Card name="XD" date="xd" id="XD"></Card>
   </template>
   
-  <script>
-  export default {
-  
-  }
+  <script setup>
+  import Card from '@/components/Card.vue';
   </script>
   
   <style>

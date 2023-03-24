@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar is-transparent is-bordered navbar-border-bottom">
+  <nav class="navbar is-transparent is-bordered navbar-border-bottom is-fixed-top">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
       <img src="../assets/images/notes.png" alt="Bulma: a modern CSS framework based on Flexbox" >
@@ -13,6 +13,9 @@
       </a>
       <a class="navbar-item" href="https://bulma.io/">
         Stats
+      </a>
+      <a class="navbar-item" href="https://bulma.io/">
+        Docs
       </a>
     </div>
 

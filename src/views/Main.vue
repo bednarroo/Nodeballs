@@ -1,10 +1,32 @@
-<template>
-  
-  <Card name="XD" date="xd" id="XD"></Card>
+<template >
+  <div class="notification is-primary is-flex is-flex-direction-column mt-6">
+    <span class="container">Please fill-up form to add new Note! </span>
+  </div>
+  <AddElementForm></AddElementForm>
+  <div class=" is-flex is-flex-wrap-wrap is-justify-content-space-evenly ">
+    <div class="container is-fluid mt-5">
+      <div class="notification is-primary is-flex is-flex-direction-column	">
+    <span class="container">Too much of notes? Use our search engine to find matching one! </span>
+  </div>
+      <Search></Search>
+  <div class="notification is-primary is-flex is-flex-direction-column	">
+    <span class="container">Down below you will find your <strong>fluid</strong> notes. You can either delete or modify them!</span>
+  </div>
+  <Order></Order>
+</div>
+  <Card name="XD" date="xd" id="XD" ></Card>
+  <Card name="XD" date="xd" id="XD" ></Card>
+  <Card name="XD" date="xd" id="XD" ></Card>
+  <Card name="XD" date="xd" id="XD" ></Card>
+  <Card name="XD" date="xd" id="XD" ></Card>
+  </div>
   </template>
   
   <script setup>
   import Card from '@/components/Card.vue';
+  import AddElementForm from '@/components/AddElementForm.vue';
+  import Search from '@/components/Search.vue';
+  import Order from '@/components/Order.vue'
   </script>
   
   <style>

@@ -1,5 +1,5 @@
-<template>
-  <div class="card">
+<template  >
+  <div class="card card column is-one-third m-5">
   <div class="card-content">
     <p class="title">
 {{props.name}}    </p>

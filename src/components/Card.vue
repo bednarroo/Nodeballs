@@ -2,16 +2,17 @@
   <div class="card card column is-one-third m-5">
   <div class="card-content">
     <p class="title">
-{{props.name}}    </p>
+{{props.title}}    </p>
     <p class="subtitle">
       {{ props.date }}
+      {{ props.description }}
     </p>
   </div>
   <div class="card-footer">
     <a href="">
         <div class="card-footer-item">
         <a href="">
-            <span>Edit</span>
+            <span>Edit {{props.id}}</span>
         </a>
     </div>
     </a>
@@ -19,6 +20,8 @@
       <span> <a href="#">Delete</a>
       </span>
     </p>
+    {{props.priority}}
+    
 </div>
 </div>
 </template>
@@ -26,9 +29,11 @@
 <script setup>
 
 const props = defineProps({
-    name:{type: String},
-    date:{type: String},
-    id:{type: String},
+    title:{type: String},
+    description: {type: String},
+    date:{type: Date},
+    id:{type: Number},
+    priority:{type: Number},
 })
 
 </script>

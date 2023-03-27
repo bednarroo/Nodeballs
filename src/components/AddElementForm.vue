@@ -1,9 +1,9 @@
 <template >
-    <form class="is-flex is-flex-direction-column m-5 p-3">
+    <form class="is-flex is-flex-direction-column m-5 p-3" @submit.prevent="addNewNotes(form)">
     <div class="field">
   <label class="label">Title</label>
   <div class="control">
-    <input class="input" type="text" placeholder="Put your title here!">
+    <input class="input" required type="text" placeholder="Put your title here!" v-model="form.title">
   </div>
 </div>
 
@@ -11,20 +11,20 @@
   <label class="label">Priority</label>
   <div class="control">
     <div class="select">
-      <select>
-        <option>Select dropdown</option>
-        <option>High Priority</option>
-        <option>Medium Priority</option>
-        <option>Low Priority</option>
+      <select required v-model="form.priority">
+        <option value="">Select dropdown</option>
+        <option value="3">High Priority</option>
+        <option value="2">Medium Priority</option>
+        <option value="1">Low Priority</option>
       </select>
     </div>
   </div>
 </div>
 
 <div class="field">
-  <label class="label">Message</label>
+  <label class="label">Description</label>
   <div class="control">
-    <textarea class="textarea" placeholder="Textarea"></textarea>
+    <textarea class="textarea" placeholder="Textarea" required v-model="form.description"></textarea>
   </div>
 </div>
 
@@ -40,6 +40,27 @@
     </template>
     
     <script setup>
+    import {useNotesStore } from '@/stores/notes.js';
+    import {reactive} from 'vue';
+
+    const notes = useNotesStore();
+    const form = reactive({
+        title: "",
+        priority: "",
+        description: "",
+        date: new Date(),
+        id: ""
+    })
+
+    const addNewNotes = (form) =>{
+        notes.addNote(form);
+        form.title = "",
+        form.description= "Select dropdown",
+        form.priority = 0,
+        form.id= ""
+    }
+
+ 
     </script>
     
     <style>

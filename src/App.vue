@@ -11,4 +11,7 @@ import Navbar from '@/components/Navbar.vue'
 
 <style lang = "scss">
 @import "bulma/css/bulma.css";
+body{
+    padding-top: 55px ;
+}
 </style>

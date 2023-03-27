@@ -1,5 +1,5 @@
 <template>
-<footer class="footer py-5 my-5">
+<footer class="footer py-5 ">
     <div class="content has-text-centered ">
       <p>
         This App was created by 

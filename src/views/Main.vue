@@ -1,5 +1,5 @@
 <template >
-  <div class="notification is-primary is-flex is-flex-direction-column mt-6">
+  <div class="notification is-primary is-flex is-flex-direction-column ">
     <span class="container">Please fill-up form to add new Note! </span>
   </div>
   <AddElementForm></AddElementForm>
@@ -14,11 +14,7 @@
   </div>
   <Order></Order>
 </div>
-  <Card name="XD" date="xd" id="XD" ></Card>
-  <Card name="XD" date="xd" id="XD" ></Card>
-  <Card name="XD" date="xd" id="XD" ></Card>
-  <Card name="XD" date="xd" id="XD" ></Card>
-  <Card name="XD" date="xd" id="XD" ></Card>
+  <Card v-for="note in notes.notes" :title="note.title" :description="note.description" :date="note.date" :priority="note.priority" :key="note.id" ></Card>
   </div>
   </template>
   
@@ -27,6 +23,10 @@
   import AddElementForm from '@/components/AddElementForm.vue';
   import Search from '@/components/Search.vue';
   import Order from '@/components/Order.vue'
+  import {useNotesStore} from '@/stores/notes.js';
+
+  const notes = useNotesStore();
+
   </script>
   
   <style>

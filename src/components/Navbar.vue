@@ -44,4 +44,7 @@ export default {
 .navbar-border-bottom{
   border-bottom: 2px solid #00d1b2 ; 
 }
+.is-fixed-top{
+  top: 0
+}
 </style>

@@ -9,7 +9,12 @@ export const useNotesStore = defineStore({
         addNote(note){
             this.notes.push(note)
         },
-        deleteNote(){
+        deleteNote(noteid){
+            // console.log(this.notes)
+            // console.log(noteid);
+            this.notes = this.notes.filter(note => {
+                console.log(noteid, noteid )
+                return note.id !== noteid });
 
         },
         editNote(){

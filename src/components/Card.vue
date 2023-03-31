@@ -11,14 +11,14 @@
   <div class="card-footer">
     <a href="">
         <div class="card-footer-item">
-        <a href="">
+        <a href="/edit/{{props.id}}">
             <span>Edit {{props.id}}</span>
         </a>
     </div>
     </a>
     <p class="card-footer-item">
-      <span> <a href="#">Delete</a>
-      </span>
+      <button @click="deleteElement(id)">  Delete
+      </button>
     </p>
     {{props.priority}}
     
@@ -27,6 +27,9 @@
 </template>
 
 <script setup>
+  import {useNotesStore} from '@/stores/notes.js';
+
+const notes = useNotesStore();
 
 const props = defineProps({
     title:{type: String},
@@ -35,6 +38,10 @@ const props = defineProps({
     id:{type: Number},
     priority:{type: Number},
 })
+
+const deleteElement = (id) => {
+notes.deleteNote(id)
+}
 
 </script>
 

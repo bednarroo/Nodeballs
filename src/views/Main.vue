@@ -14,7 +14,7 @@
   </div>
   <Order></Order>
 </div>
-  <Card v-for="note in notes.notes" :title="note.title" :description="note.description" :date="note.date" :priority="note.priority" :key="note.id" ></Card>
+  <Card v-for="note in notes.notes" :title="note.title" :description="note.description" :date="note.date" :priority="note.priority" :key="note.id" :id=note.id ></Card>
   </div>
   </template>
   

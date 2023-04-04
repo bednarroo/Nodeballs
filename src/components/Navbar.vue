@@ -8,24 +8,24 @@
 
   <div id="navbarExampleTransparentExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="https://bulma.io/">
+      <router-link class="navbar-item" to="/">
         Notes
-      </a>
-      <a class="navbar-item" href="https://bulma.io/">
+      </router-link>
+      <router-link class="navbar-item" to="/stats">
         Stats
-      </a>
-      <a class="navbar-item" href="https://bulma.io/">
+      </router-link>
+      <router-link class="navbar-item" to="/docs">
         Docs
-      </a>
+      </router-link>
     </div>
 
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="field is-grouped">
           <p class="control">
-            <a class="button is-primary" href="https://github.com/jgthms/bulma/releases/download/0.9.4/bulma-0.9.4.zip">
+            <router-link class="button is-primary" to="https://github.com/jgthms/bulma/releases/download/0.9.4/bulma-0.9.4.zip">
               <span>Logout</span>
-            </a>
+            </router-link>
           </p>
         </div>
       </div>

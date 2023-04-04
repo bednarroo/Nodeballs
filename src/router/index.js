@@ -14,7 +14,7 @@ name: 'Login'},
     {path: '/stats',
 component: Stats,
 name: 'Stats'},
-    {path: '/edit',
+    {path: '/edit/:id',
 component: Edit,
 name: 'Edit'}
 ]

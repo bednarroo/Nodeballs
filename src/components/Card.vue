@@ -9,13 +9,13 @@
     </p>
   </div>
   <div class="card-footer">
-    <a href="">
+    <router-link to="">
         <div class="card-footer-item">
-        <a href="/edit/{{props.id}}">
+        <router-link :to = "`/edit/${props.id}`">
             <span>Edit {{props.id}}</span>
-        </a>
+        </router-link>
     </div>
-    </a>
+    </router-link>
     <p class="card-footer-item">
       <button @click="deleteElement(id)">  Delete
       </button>

@@ -4,8 +4,10 @@
     <p class="title">
 {{props.title}}    </p>
     <p class="subtitle">
-      {{ props.date }}
       {{ props.description }}
+    </p>
+    <p class="subtitle">
+      {{ noteData  }}
     </p>
   </div>
   <div class="card-footer">
@@ -20,7 +22,6 @@
       <button @click="deleteElement(id)">  Delete
       </button>
     </p>
-    {{props.priority}}
     
 </div>
 </div>
@@ -28,6 +29,8 @@
 
 <script setup>
   import {useNotesStore} from '@/stores/notes.js';
+  import moment from 'moment';
+  import {computed, ref} from 'vue'
 
 const notes = useNotesStore();
 
@@ -42,6 +45,9 @@ const props = defineProps({
 const deleteElement = (id) => {
 notes.deleteNote(id)
 }
+// Computed data. Use correct format with extternal library
+const noteData = computed(()=>moment(props.date).format('MMMM d,YYYY'));
+
 
 </script>
 

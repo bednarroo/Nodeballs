@@ -49,15 +49,19 @@
         priority: "",
         description: "",
         date: new Date(),
-        id: ""
-    })
+        id: Date.now().toString(36) + Math.random().toString(36).substr(2)
+    });
+    const cleanElement = () =>{
+          form.title = "",
+        form.description= "",
+        form.priority = ""
+        }
 
     const addNewNotes = (form) =>{
-        notes.addNote(form);
-        form.title = "",
-        form.description= "Select dropdown",
-        form.priority = 0,
-        form.id= ""
+        notes.addNote({...form, 'form.date': new Date(), 'form.id': new Date()});
+        form.date = new Date(),
+        form.id = Date.now().toString(36) + Math.random().toString(36).substr(2);
+        cleanElement();
     }
 
  

@@ -1,5 +1,5 @@
 <template  >
-  <div class="card card column is-one-third m-5">
+  <div class="card card column is-one-third m-5 priority" :class="priorityClass">
   <div class="card-content">
     <p class="title">
 {{props.title}}    </p>
@@ -22,6 +22,7 @@
       <button @click="deleteElement(id)">  Delete
       </button>
     </p>
+    {{ props.priority }}
     
 </div>
 </div>
@@ -30,7 +31,7 @@
 <script setup>
   import {useNotesStore} from '@/stores/notes.js';
   import moment from 'moment';
-  import {computed, ref} from 'vue'
+  import {computed} from 'vue'
 
 const notes = useNotesStore();
 
@@ -47,10 +48,35 @@ notes.deleteNote(id)
 }
 // Computed data. Use correct format with extternal library
 const noteData = computed(()=>moment(props.date).format('MMMM d,YYYY'));
+const priorityClass = computed(() => {
+  console.log(props.priority)
+  if (props.priority == 1) {
+    return "high-priority";
+  } else if (props.priority == 2) {
+    return "medium-priority";
+  } else {
+    return "low-priority";
+  }
+});
 
 
 </script>
 
 <style>
+
+.priority{
+  border-radius: 20px;
+}
+
+.high-priority{
+  border: 3px solid red;
+}
+.medium-priority{
+  border: 3px solid blue;
+}
+.low-priority{
+  border: 3px solid green;
+  
+}
 
 </style>

@@ -12,7 +12,8 @@ export const useNotesStore = defineStore({
     },
     actions: {
         addNote(note){
-            this.notes.push(note)
+            this.notes.push(note);
+            console.log(note)
         },
         deleteNote(noteid){
             this.notes = this.notes.filter(note => {

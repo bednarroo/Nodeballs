@@ -1,5 +1,5 @@
 <template >
-    <form class="is-flex is-flex-direction-column m-5 p-3" @submit.prevent="EditNote()">
+    <div class="is-flex is-flex-direction-column m-5 p-3" >
     <div class="field">
   <label class="label">Title</label>
   <div class="control">
@@ -28,12 +28,22 @@
   </div>
 </div>
 
+
+<footer class="is-flex is-justify-content-space-evenly"  >
+      <button type="submit" @click="editNote(id)" class="button is-info is-selected w-40">Edit this note Twitter</button>
+  <button type="submit" class="button is-danger is-selected w-40" @click="deleteElement(id)" >Delete this note</button>
+  </footer>
+
+
+
 <div class="field is-grouped is-justify-content-center	">
   <div class="control">
-    <button  class="button is-link">Edit this note!</button>
+    <router-link :to = "`/`">
+    <button type="button"  class="button is-link">Show all notes</button>
+  </router-link>
   </div>
 </div>
-</form>
+</div>
     </template>
     
     <script setup>
@@ -51,12 +61,16 @@
     const editedValues = reactive({...notes.getItemById(parseInt(props.id,10))})
 
     // EditNote function 
-
-    const EditNote = () => {
-      notes.editNote(editedValues,props.id);
+    const editNote = (id) => {
+      notes.editNote(editedValues, Number(id));
       router.push({path: "/"});
     }
 
+    // Delete note
+    const deleteElement = (id) => {
+      notes.deleteNote(Number(id));
+      router.push({path: "/"});
+    }
 
     </script>
     

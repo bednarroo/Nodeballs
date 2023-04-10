@@ -22,9 +22,12 @@ export const useNotesStore = defineStore({
         },
         editNote(editedValues, idToEdit){
             this.notes = this.notes.map( note => {
-                if (note.id === parseInt(idToEdit, 10)){
+                if (note.id === idToEdit){
+                    console.log(note.id, idToEdit)
                     return editedValues;
-                }else note
+                }else{
+                    return note
+                }
         })
     }
 }})

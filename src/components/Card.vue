@@ -10,21 +10,17 @@
       {{ noteData  }}
     </p>
   </div>
-  <div class="card-footer">
-    <router-link to="">
-        <div class="card-footer-item">
+
+  <footer class="is-flex is-justify-content-space-evenly"  >
         <router-link :to = "`/edit/${props.id}`">
-            <span>Edit {{props.id}}</span>
-        </router-link>
-    </div>
+
+      <button class="button is-info is-selected w-40">Edit this note Twitter</button>
     </router-link>
-    <p class="card-footer-item">
-      <button @click="deleteElement(id)">  Delete
-      </button>
-    </p>
-    {{ props.priority }}
-    
-</div>
+  <button class="button is-danger is-selected w-40" @click="deleteElement(id)">Delete this note</button>
+  </footer>
+
+
+
 </div>
 </template>
 

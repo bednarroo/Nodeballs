@@ -2,7 +2,7 @@
   <nav class="navbar is-transparent is-bordered navbar-border-bottom is-fixed-top">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
-      <img src="../assets/images/notes.png" alt="Bulma: a modern CSS framework based on Flexbox" >
+      <img src="../assets/images/notes.png" alt="Notes" height="50px" >
     </a>
     <a role="button" class="navbar-burger " aria-label="menu" aria-expanded="false" 
     @click="isActive =!isActive"
@@ -14,31 +14,31 @@
 </a>
   </div>
   
-  <div id="navbarExampleTransparentExample" class="navbar-menu"
+  <div id="navbarExampleTransparentExample" class="navbar-menu ml-6"
   :class="isActive === true ? 'is-active' : ''">
   
     <div class="navbar-start">
       <router-link class="navbar-item" to="/">
         <span class="icon has-text-primary">
-          <i class="fa-solid fa-note-sticky"></i>
+          <i class="fa-solid fa-note-sticky fa-xl"></i>
     </span>
-    <span>
+    <span class="is-size-5 mx-3">
       Notes
     </span>
       </router-link>
       <router-link class="navbar-item" to="/stats">
         <span class="icon has-text-primary">
-          <i class="fa-solid fa-chart-simple"></i>
+          <i class="fa-solid fa-chart-simple fa-xl"></i>
     </span>
-    <span>
+    <span class="is-size-5 mx-3">
       Stats
     </span>
   </router-link>
       <router-link class="navbar-item" to="/docs">
         <span class="icon has-text-primary">
-      <i class="fas fa-book"></i>
+      <i class="fas fa-book fa-xl"></i>
     </span>
-    <span>
+    <span class="is-size-5 mx-3">
       Docs
     </span>
       </router-link>
@@ -75,6 +75,7 @@ const isActive = ref(false);
   top: 0
 }
 .navbar{
-  padding: 15px;
+  padding: 10px;
+  height: 90px;
 }
 </style>

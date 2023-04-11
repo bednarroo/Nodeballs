@@ -5,13 +5,15 @@ import Navbar from '@/components/Navbar.vue'
 
 <template>
 <Navbar></Navbar>
-<RouterView></RouterView>
+<div class="container is-max-desktop main-content">
+    <RouterView ></RouterView>
+</div>
 <Footer></Footer>
 </template>
 
 <style lang = "scss">
 @import "bulma/css/bulma.css";
 body{
-    padding-top: 55px ;
+    padding-top: 85px ;
 }
 </style>

@@ -1,5 +1,5 @@
 <template  >
-  <div class="card card column is-one-third m-5 priority" :class="priorityClass">
+  <div class="card column m-5 priority" :class="priorityClass">
   <div class="card-content">
     <p class="title">
 {{props.title}}    </p>
@@ -11,15 +11,14 @@
     </p>
   </div>
 
-  <footer class="is-flex is-justify-content-space-evenly"  >
-        <router-link :to = "`/edit/${props.id}`">
-
-      <button class="button is-info is-selected w-40">Edit this note Twitter</button>
+  <footer class="is-flex is-justify-content-center footer"  >
+    <router-link :to = "`/edit/${props.id}`">
+      <button class="button is-info is-selected w-35">Edit this note</button>
     </router-link>
-  <button class="button is-danger is-selected w-40" @click="deleteElement(id)">Delete this note</button>
+  <button class="button is-danger is-selected w-35" @click="deleteElement(id)">
+    Delete this note
+  </button>
   </footer>
-
-
 
 </div>
 </template>
@@ -59,6 +58,9 @@ const priorityClass = computed(() => {
 </script>
 
 <style>
+.card{
+  min-width: 400px
+}
 
 .priority{
   border-radius: 20px;
@@ -74,5 +76,13 @@ const priorityClass = computed(() => {
   border: 3px solid green;
   
 }
+
+.footer{
+  padding: 0
+}
+.footer > * {
+    margin: 0 10px;
+}
+
 
 </style>

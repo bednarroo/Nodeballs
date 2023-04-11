@@ -30,7 +30,7 @@
 
 
 <footer class="is-flex is-justify-content-space-evenly"  >
-      <button type="submit" @click="editNote(id)" class="button is-info is-selected w-40">Edit this note Twitter</button>
+      <button type="submit" @click="editNote(id)" class="button is-info is-selected w-40">Edit this note</button>
   <button type="submit" class="button is-danger is-selected w-40" @click="deleteElement(id)" >Delete this note</button>
   </footer>
 

@@ -4,18 +4,43 @@
     <a class="navbar-item" href="/">
       <img src="../assets/images/notes.png" alt="Bulma: a modern CSS framework based on Flexbox" >
     </a>
+    <a role="button" class="navbar-burger " aria-label="menu" aria-expanded="false" 
+    @click="isActive =!isActive"
+    :class="isActive === false ? '' : 'is-active'"
+    >
+  <span aria-hidden="true"></span>
+  <span aria-hidden="true"></span>
+  <span aria-hidden="true"></span>
+</a>
   </div>
-
-  <div id="navbarExampleTransparentExample" class="navbar-menu">
+  
+  <div id="navbarExampleTransparentExample" class="navbar-menu"
+  :class="isActive === true ? 'is-active' : ''">
+  
     <div class="navbar-start">
       <router-link class="navbar-item" to="/">
-        Notes
+        <span class="icon has-text-primary">
+          <i class="fa-solid fa-note-sticky"></i>
+    </span>
+    <span>
+      Notes
+    </span>
       </router-link>
       <router-link class="navbar-item" to="/stats">
-        Stats
-      </router-link>
+        <span class="icon has-text-primary">
+          <i class="fa-solid fa-chart-simple"></i>
+    </span>
+    <span>
+      Stats
+    </span>
+  </router-link>
       <router-link class="navbar-item" to="/docs">
-        Docs
+        <span class="icon has-text-primary">
+      <i class="fas fa-book"></i>
+    </span>
+    <span>
+      Docs
+    </span>
       </router-link>
     </div>
 
@@ -34,10 +59,12 @@
 </nav>
 </template>
 
-<script>
-export default {
+<script setup>
+import {ref} from "vue";
 
-}
+const isActive = ref(false);
+
+
 </script>
 
 <style>
@@ -46,5 +73,8 @@ export default {
 }
 .is-fixed-top{
   top: 0
+}
+.navbar{
+  padding: 15px;
 }
 </style>

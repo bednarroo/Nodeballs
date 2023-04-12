@@ -3,6 +3,7 @@ import Main from '@/views/Main.vue';
 import Login from '@/views/Login.vue';
 import Stats from '@/views/Stats.vue';
 import Edit from '@/views/Edit.vue';
+import Documentation from '@/views/Documentation.vue';
 
 
 
@@ -18,7 +19,10 @@ component: Stats,
 name: 'Stats | Notes App'},
     {path: '/edit/:id',
 component: Edit,
-name: 'Edit | Notes App'}
+name: 'Edit | Notes App'},
+    {path: '/documentation',
+component: Documentation,
+name: 'Documentation | Notes App'}
 ]
 const router = createRouter({
     history: createWebHistory(),

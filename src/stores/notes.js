@@ -20,6 +20,15 @@ export const useNotesStore = defineStore({
                 return note.id !== noteid });
 
         },
+        sortNote(methodOfOrder){
+            if(methodOfOrder === "title"){
+              return  this.notes.sort((a, b) => a.title.localeCompare(b.title));
+            }else if(methodOfOrder === "priority"){
+               return  this.notes.sort((a,b) => a.priority - b.priority);
+            }else{
+               return  this.notes.sort((a, b) => a.date - b.date);
+            }
+        },
         editNote(editedValues, idToEdit){
             this.notes = this.notes.map( note => {
                 if (note.id === idToEdit){
@@ -30,4 +39,5 @@ export const useNotesStore = defineStore({
                 }
         })
     }
-}})
+}
+});

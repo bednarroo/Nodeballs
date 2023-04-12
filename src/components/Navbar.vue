@@ -1,10 +1,10 @@
 <template>
   <nav class="navbar is-transparent is-bordered navbar-border-bottom is-fixed-top">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="/">
-      <img src="../assets/images/notes.png" alt="Notes" height="50px" >
+  <div class="navbar-brand is-full">
+    <a class="navbar-item is-full" href="/">
+      <img src="../assets/images/notes.png" alt="Notes" class="logo-image"  >
     </a>
-    <a role="button" class="navbar-burger " aria-label="menu" aria-expanded="false" 
+    <a role="button" class="navbar-burger is-full " aria-label="menu" aria-expanded="false" 
     @click="isActive =!isActive"
     :class="isActive === false ? '' : 'is-active'"
     >
@@ -14,7 +14,7 @@
 </a>
   </div>
   
-  <div id="navbarExampleTransparentExample" class="navbar-menu ml-6"
+  <div id="navbarExampleTransparentExample" class="navbar-menu ml-5"
   :class="isActive === true ? 'is-active' : ''">
   
     <div class="navbar-start">
@@ -34,12 +34,12 @@
       Stats
     </span>
   </router-link>
-      <router-link class="navbar-item" to="/docs">
+      <router-link class="navbar-item" to="/documentation">
         <span class="icon has-text-primary">
       <i class="fas fa-book fa-xl"></i>
     </span>
     <span class="is-size-5 mx-3">
-      Docs
+      Documentation
     </span>
       </router-link>
     </div>
@@ -77,5 +77,11 @@ const isActive = ref(false);
 .navbar{
   padding: 10px;
   height: 90px;
+}
+.is-full{
+  height: 100%!important;
+}
+.logo-image {
+    max-height: 2.75rem!important;
 }
 </style>

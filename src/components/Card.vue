@@ -1,12 +1,12 @@
 <template  >
-  <div class="card column m-5 priority" :class="priorityClass">
-  <div class="card-content">
-    <p class="title">
+  <div class="card column m-5 priority pt-0" :class="priorityClass">
+  <div class="card-content py-5 px-3	">
+    <p class="is-size-4 has-text-centered has-text-weight-semibold		">
 {{props.title}}    </p>
-    <p class="subtitle">
+    <p class="is-size-5">
       {{ props.description }}
     </p>
-    <p class="subtitle">
+    <p class="is-size-6 has-text-right	">
       {{ noteData  }}
     </p>
   </div>
@@ -67,13 +67,13 @@ const priorityClass = computed(() => {
 }
 
 .high-priority{
-  border: 3px solid red;
+  border: 2px solid red;
 }
 .medium-priority{
-  border: 3px solid blue;
+  border: 2px solid blue;
 }
 .low-priority{
-  border: 3px solid green;
+  border: 2px solid green;
   
 }
 

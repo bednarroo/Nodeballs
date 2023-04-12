@@ -15,7 +15,7 @@
     <router-link :to = "`/edit/${props.id}`">
       <button class="button is-info is-selected w-35">Edit this note</button>
     </router-link>
-  <button class="button is-danger is-selected w-35" @click="deleteElement(id)">
+  <button class="button is-danger is-selected w-35" @click="$emit('showPopUp')">
     Delete this note
   </button>
   </footer>
@@ -24,11 +24,12 @@
 </template>
 
 <script setup>
-  import {useNotesStore} from '@/stores/notes.js';
   import moment from 'moment';
-  import {computed} from 'vue'
+  import {computed} from 'vue';
 
-const notes = useNotesStore();
+  
+
+defineEmits(['showPopUp']);
 
 const props = defineProps({
     title:{type: String},
@@ -36,11 +37,14 @@ const props = defineProps({
     date:{type: Date},
     id:{type: Number},
     priority:{type: Number},
+    isPopUpOpened:{type:Boolean}
 })
 
-const deleteElement = (id) => {
-notes.deleteNote(id)
-}
+// const deleteElement = this => {
+//   this.$emit('showPopUp');
+//   console.log(this)
+//   console.log(id)
+// }
 // Computed data. Use correct format with extternal library
 const noteData = computed(()=>moment(props.date).format('MMMM d,YYYY'));
 const priorityClass = computed(() => {
@@ -53,6 +57,8 @@ const priorityClass = computed(() => {
     return "low-priority";
   }
 });
+
+
 
 
 </script>

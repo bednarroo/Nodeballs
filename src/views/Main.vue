@@ -14,18 +14,28 @@
   </div>
   <Order></Order>
 </div>
-  <Card v-for="note in notes.notes" :title="note.title" :description="note.description" :date="note.date" :priority="note.priority" :key="note.id" :id=note.id ></Card>
+  <Card @showPopUp = "isPopUpOpened = true" v-for="note in notes.notes" :title="note.title" :description="note.description" :date="note.date" :priority="note.priority" :key="note.id" :id=note.id ></Card>
   </div>
+  <Teleport to="body">
+  <PopUpDelete 
+  @closePopUp = "isPopUpOpened = false"
+  :title="popUpProps.title" :id="popUpProps.id" v-if="isPopUpOpened"></PopUpDelete>
+</Teleport>
   </template>
   
   <script setup>
+  import {ref} from 'vue'
+  
   import Card from '@/components/Card.vue';
   import AddElementForm from '@/components/AddElementForm.vue';
+  import PopUpDelete from '@/components/PopUpDelete.vue';
   import Search from '@/components/Search.vue';
   import Order from '@/components/Order.vue'
   import {useNotesStore} from '@/stores/notes.js';
 
   const notes = useNotesStore();
+
+  const isPopUpOpened = ref(false);
 
   </script>
   

@@ -15,19 +15,22 @@
   <Order></Order>
 </div>
   <Card
-  v-for="note in noteArray" :title="note.title" :description="note.description" :date="note.date" :priority="note.priority" :key="note.id" :id=note.id ></Card>
+  v-for="note in noteArray" :title="note.title" :description="note.description" :date="note.date" :priority="note.priority" :key="note.id" :id=note.id
+  @showPopUp="showPopUp"
+  ></Card>
   </div>
   <Teleport to="body">
   <PopUpDelete 
-  :title="popUpProps.title"
-   :id="popUpProps.id"
+    :title="popUpValues.title"
+    :id="popUpValues.id"
+    @closePopUp="closePopUp"
     v-if="isPopUpOpened">
   </PopUpDelete>
 </Teleport>
   </template>
   
   <script setup>
-  import {ref, computed} from 'vue'
+  import {ref, computed, reactive} from 'vue'
   
   import Card from '@/components/Card.vue';
   import AddElementForm from '@/components/AddElementForm.vue';
@@ -38,6 +41,10 @@
 
   const notes = useNotesStore();
   const isPopUpOpened = ref(false);
+  const popUpValues = reactive({
+    title: "",
+    id:""
+  })
   const searchValue = ref("");
   const noteArray = computed(() => {
       if (searchValue.value === "") {
@@ -47,11 +54,20 @@
       }
     });
 
-    const updateSearch = (value) => {
-      searchValue.value = value;
-    };
+  const updateSearch = (value) => {
+    searchValue.value = value;
+  };
   
+ const showPopUp = (params) =>{
+  isPopUpOpened.value = true;
+  console.log(params)
+  popUpValues.id = params[0].id
+  popUpValues.title = params[0].title
+ }
 
+ const closePopUp = () => {
+  isPopUpOpened.value = false
+ }
 
   </script>
   

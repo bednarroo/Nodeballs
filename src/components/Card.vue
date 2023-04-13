@@ -16,6 +16,7 @@
       <button class="button is-info is-selected w-35">Edit this note</button>
     </router-link>
   <button class="button is-danger is-selected w-35"
+  @click="handlePopUp()"
    >
     Delete this note
   </button>
@@ -26,11 +27,14 @@
 
 <script setup>
   import moment from 'moment';
-  import {computed} from 'vue';
+  import {computed, defineEmits} from 'vue';
 
-  
+const emit = defineEmits(['showPopUp']);
 
-// defineEmits(['showPopUp']);
+const handlePopUp = () => {
+  emit('showPopUp', [{"id": props.id,"title": props.title}]);
+}
+
 
 const props = defineProps({
     title:{type: String},
@@ -41,11 +45,7 @@ const props = defineProps({
     isPopUpOpened:{type:Boolean}
 })
 
-// const deleteElement = this => {
-//   this.$emit('showPopUp');
-//   console.log(this)
-//   console.log(id)
-// }
+
 // Computed data. Use correct format with extternal library
 const noteData = computed(()=>moment(props.date).format('MMMM d,YYYY'));
 const priorityClass = computed(() => {
@@ -58,8 +58,6 @@ const priorityClass = computed(() => {
     return "low-priority";
   }
 });
-
-
 
 
 </script>

@@ -8,23 +8,26 @@
       <div class="notification is-primary is-flex is-flex-direction-column	">
     <span class="container">Too much of notes? Use our search engine to find matching one! </span>
   </div>
-      <Search></Search>
+      <Search @updateSearchValue="updateSearch" ></Search>
   <div class="notification is-primary is-flex is-flex-direction-column	">
     <span class="container">Down below you will find your <strong>fluid</strong> notes. You can either delete or modify them!</span>
   </div>
   <Order></Order>
 </div>
-  <Card @showPopUp = "isPopUpOpened = true" v-for="note in notes.notes" :title="note.title" :description="note.description" :date="note.date" :priority="note.priority" :key="note.id" :id=note.id ></Card>
+  <Card
+  v-for="note in noteArray" :title="note.title" :description="note.description" :date="note.date" :priority="note.priority" :key="note.id" :id=note.id ></Card>
   </div>
   <Teleport to="body">
   <PopUpDelete 
-  @closePopUp = "isPopUpOpened = false"
-  :title="popUpProps.title" :id="popUpProps.id" v-if="isPopUpOpened"></PopUpDelete>
+  :title="popUpProps.title"
+   :id="popUpProps.id"
+    v-if="isPopUpOpened">
+  </PopUpDelete>
 </Teleport>
   </template>
   
   <script setup>
-  import {ref} from 'vue'
+  import {ref, computed} from 'vue'
   
   import Card from '@/components/Card.vue';
   import AddElementForm from '@/components/AddElementForm.vue';
@@ -34,8 +37,21 @@
   import {useNotesStore} from '@/stores/notes.js';
 
   const notes = useNotesStore();
-
   const isPopUpOpened = ref(false);
+  const searchValue = ref("");
+  const noteArray = computed(() => {
+      if (searchValue.value === "") {
+        return notes.notes;
+      } else {
+        return notes.notes.filter(note => note.title.includes(searchValue.value));
+      }
+    });
+
+    const updateSearch = (value) => {
+      searchValue.value = value;
+    };
+  
+
 
   </script>
   

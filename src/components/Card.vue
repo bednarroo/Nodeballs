@@ -15,7 +15,8 @@
     <router-link :to = "`/edit/${props.id}`">
       <button class="button is-info is-selected w-35">Edit this note</button>
     </router-link>
-  <button class="button is-danger is-selected w-35" @click="$emit('showPopUp')">
+  <button class="button is-danger is-selected w-35"
+   >
     Delete this note
   </button>
   </footer>
@@ -29,7 +30,7 @@
 
   
 
-defineEmits(['showPopUp']);
+// defineEmits(['showPopUp']);
 
 const props = defineProps({
     title:{type: String},

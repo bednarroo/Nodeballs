@@ -44,9 +44,9 @@ const showAllNotes = () => {
 .pop-up-container{
     position: fixed;
     top: 50vh;
-    z-index: 3;
+    z-index: 31;
     left: calc(50vw - 225px);
-    border: 1px solid black;
+    border: 3px solid black;
     border-radius: 20px;
     width: 450px;
 }

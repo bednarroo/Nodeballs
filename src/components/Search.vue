@@ -5,12 +5,14 @@
      v-model="searchValue"
      placeholder="Find your notes by title">
   </p>
-  <button class="control" 
+  <div class="control">
+
+    <button class="button is-link" 
     @click="searchValue = ''" >
-    <span class="button is-info" >
-      Clean 
-    </span>
+    Clean!
   </button>
+</div>
+
 </div>
     </template>
     

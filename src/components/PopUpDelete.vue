@@ -56,7 +56,7 @@ const showAllNotes = () => {
   top: 0;
   left:0;
   background-color: white;
-  opacity: 50%;
+  opacity: 70%;
   content: "";
   width: 100vw;
   height: 100vh;

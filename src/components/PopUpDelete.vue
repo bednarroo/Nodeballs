@@ -1,5 +1,5 @@
 <template  >
-  <div class="column card pop-up-container m-5 priority pt-0">
+ <div class="card column m-0 priority pt-0 pop-up-container">
   <div class="card-content py-5 px-3	">
     <p class="is-size-4 has-text-centered has-text-weight-semibold		">
 Do you want to delete note with title: {{props.title}} and id: {{ props.id }}   </p>
@@ -44,12 +44,23 @@ const showAllNotes = () => {
 .pop-up-container{
     position: fixed;
     top: 50vh;
-    z-index: 2;
-    background-color: white;
-    width: 80vw;
+    z-index: 3;
+    left: calc(50vw - 225px);
     border: 1px solid black;
-    border-radius: 4%;
-    margin: 0 auto 0 auto;
+    border-radius: 20px;
+    width: 450px;
+}
+
+.pop-up-container::after{
+  position: fixed;
+  top: 0;
+  left:0;
+  background-color: white;
+  opacity: 50%;
+  content: "";
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
 }
 
 </style>

@@ -9,10 +9,18 @@
     <span class="container">Too much of notes? Use our search engine to find matching one! </span>
   </div>
       <Search @updateSearchValue="updateSearch" ></Search>
-  <div class="notification is-primary is-flex is-flex-direction-column	">
-    <span class="container">Down below you will find your <strong>fluid</strong> notes. You can either delete or modify them!</span>
+      <div v-if="noteArray.length">
+        <div  class="notification is-primary is-flex is-flex-direction-column	">
+    <span  class="container">Down below you will find your <strong>fluid</strong> notes. You can either delete or modify them!</span>
   </div>
   <Order></Order>
+      </div>
+
+  <div v-else class="notification is-primary is-flex is-flex-direction-column	">
+    <span  class="container">The is no note added yet! Please do it!</span>
+  </div>
+
+
 </div>
   <Card
   v-for="note in noteArray" :title="note.title" :description="note.description" :date="note.date" :priority="note.priority" :key="note.id" :id=note.id
@@ -60,7 +68,6 @@
   
  const showPopUp = (params) =>{
   isPopUpOpened.value = true;
-  console.log(params)
   popUpValues.id = params[0].id
   popUpValues.title = params[0].title
  }

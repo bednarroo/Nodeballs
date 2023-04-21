@@ -47,20 +47,16 @@
     const form = reactive({
         title: "",
         priority: "",
-        description: "",
-        date: new Date(),
-        id: Date.now().toString(36) + Math.random().toString(36).substr(2)
+        description: ""
     });
     const cleanElement = () =>{
-          form.title = "",
+        form.title = "",
         form.description= "",
         form.priority = ""
         }
 
     const addNewNotes = (form) =>{
-        notes.addNote({...form, 'form.date': new Date(), 'form.id': new Date()});
-        form.date = new Date(),
-        form.id = Date.now().toString(36) + Math.random().toString(36).substr(2);
+        notes.addNote({...form});
         cleanElement();
     }
 

@@ -52,23 +52,22 @@
     import {useNotesStore } from '@/stores/notes.js';
     import {reactive} from 'vue';
     const props = defineProps({
-      id: {type: Number, required: true}
+      id: {type: String, required: true}
     });
     // Use Vue Router
     const router = useRouter()
     // Use Pinia Store
     const notes = useNotesStore();
-    const editedValues = reactive({...notes.getItemById(parseInt(props.id,10))})
-
+    const editedValues = reactive({...notes.getItemById(props.id)});
     // EditNote function 
     const editNote = (id) => {
-      notes.editNote(editedValues, Number(id));
+      notes.editNote(editedValues,id);
       router.push({path: "/"});
     }
 
     // Delete note
     const deleteElement = (id) => {
-      notes.deleteNote(Number(id));
+      notes.deleteNote(id);
       router.push({path: "/"});
     }
 

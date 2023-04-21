@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-  import moment from 'moment';
+  // import moment from 'moment';
   import {computed, defineEmits} from 'vue';
 
 const emit = defineEmits(['showPopUp']);
@@ -39,23 +39,22 @@ const handlePopUp = () => {
 const props = defineProps({
     title:{type: String},
     description: {type: String},
-    date:{type: Date},
-    id:{type: Number},
-    priority:{type: Number},
+    date:{type: Object},
+    id:{type: String},
+    priority:{type: String},
     isPopUpOpened:{type:Boolean}
 })
 
 
 // Computed data. Use correct format with extternal library
-const noteData = computed(()=>moment(props.date).format('MMMM d,YYYY'));
+// const noteData = computed(()=>moment(props.date).format('MMMM d,YYYY'));
 const priorityClass = computed(() => {
-  console.log(props.priority)
   if (props.priority == 1) {
-    return "high-priority";
+    return "low-priority";
   } else if (props.priority == 2) {
     return "medium-priority";
   } else {
-    return "low-priority";
+    return "high-priority";
   }
 });
 

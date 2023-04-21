@@ -25,11 +25,7 @@
   const routeParam = ref(route.params.id)
 
   // Use getter to get old title
-  const oldTitle =  notes.getItemById(Number(routeParam.value)).title;
-
-  
-
-
+  const oldTitle =  notes.getItemById(routeParam.value).title
   </script>
   
   <style>

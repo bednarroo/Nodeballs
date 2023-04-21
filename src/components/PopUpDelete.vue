@@ -45,10 +45,10 @@ const showAllNotes = () => {
     position: fixed;
     top: 50vh;
     z-index: 31;
-    left: calc(50vw - 225px);
+    left: calc(50vw - 175px);
     border: 3px solid black;
     border-radius: 20px;
-    width: 450px;
+    width: 350px;
 }
 
 .pop-up-container::after{

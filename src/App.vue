@@ -1,6 +1,18 @@
 <script setup>
+import { onMounted } from 'vue';
 import Footer from '@/components/Footer.vue'
 import Navbar from '@/components/Navbar.vue'
+import {useNotesStore} from '@/stores/notes.js';
+
+
+const notes = useNotesStore();
+
+
+// Mounted
+
+onMounted(()=>{
+notes.getNotes()
+})
 </script>
 
 <template>

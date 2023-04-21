@@ -50,7 +50,7 @@ export const useNotesStore = defineStore({
         if(methodOfOrder === "title"){
           return this.notes.sort((a, b) => a.title.localeCompare(b.title));
         }else if(methodOfOrder === "priority"){
-           return this.notes.sort((a,b) => a.priority - b.priority);
+           return this.notes.sort((a,b) => b.priority - a.priority);
         }else{
            return this.notes.sort((a, b) => a.date - b.date);
         }

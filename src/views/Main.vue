@@ -21,11 +21,21 @@
   </div>
 
 
-</div>
+  </div>
+  <template  v-if="notes.showLoader">
+
+    <progress  class="progress is-large is-primary m-5"></progress>
+  </template>
+
+
+
+<template v-if="!notes.showLoader" >
   <Card
   v-for="note in noteArray" :title="note.title" :description="note.description" :date="note.date" :priority="note.priority" :key="note.id" :id=note.id
   @showPopUp="showPopUp"
   ></Card>
+</template>
+
   </div>
   <Teleport to="body">
   <PopUpDelete 

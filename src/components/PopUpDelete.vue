@@ -23,7 +23,7 @@ Do you want to delete note with title: {{props.title}} and id: {{ props.id }}   
 
   const props = defineProps({
     title:{type: String, required: true},
-    id:{type: Number, required: true},
+    id:{type: String, required: true},
 })
 
 const deleteElement = (id) => {

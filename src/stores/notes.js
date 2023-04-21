@@ -32,8 +32,8 @@ export const useNotesStore = defineStore({
         },
         async addNote(note) {
             let id = new Date().getTime().toString();
-            let data = new Date().toISOString().slice(0, 10);
-            await setDoc(doc(db, 'notes', id), {...note, data});
+            let date = new Date().toISOString().slice(0, 10);
+            await setDoc(doc(db, 'notes', id), {...note, date});
         }
         ,
         async deleteNote(noteid){

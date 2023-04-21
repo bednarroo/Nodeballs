@@ -7,7 +7,7 @@
       {{ props.description }}
     </p>
     <p class="is-size-6 has-text-right	">
-      {{ noteData  }}
+      {{ props.date  }}
     </p>
   </div>
 
@@ -30,6 +30,7 @@
   import {computed, defineEmits} from 'vue';
 
 const emit = defineEmits(['showPopUp']);
+console.log(props)
 
 const handlePopUp = () => {
   emit('showPopUp', [{"id": props.id,"title": props.title}]);
@@ -39,7 +40,7 @@ const handlePopUp = () => {
 const props = defineProps({
     title:{type: String},
     description: {type: String},
-    date:{type: Object},
+    date:{type: String},
     id:{type: String},
     priority:{type: String},
     isPopUpOpened:{type:Boolean}

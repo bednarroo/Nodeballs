@@ -48,9 +48,9 @@
       <div class="navbar-item">
         <div class="field is-grouped">
           <p class="control">
-            <router-link class="button is-primary" to="https://github.com/jgthms/bulma/releases/download/0.9.4/bulma-0.9.4.zip">
-              <span>Logout</span>
-            </router-link>
+            <button v-if="auth.user.id" class="button is-primary" @click="auth.logoutUser">
+              Logout
+            </button>
           </p>
         </div>
       </div>
@@ -61,9 +61,10 @@
 
 <script setup>
 import {ref} from "vue";
+import { useAuthStore } from "@/stores/auth.js";
 
 const isActive = ref(false);
-
+const auth = useAuthStore();
 
 </script>
 

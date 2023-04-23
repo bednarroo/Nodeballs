@@ -1,13 +1,14 @@
 <template>
-
-<div class="card">
-  <footer class="card-footer">
-    <a href="#" class="card-footer-item" @click ="handleOptionChange('login')">Login</a>
-    <a href="#" class="card-footer-item" @click ="handleOptionChange('register')">Register</a>
-  </footer>
-</div>
+<div class="login mx-auto p-5">
+  <div class="card is-medium">
+    <footer class="card-footer mb-5">
+      <a href="#" class="card-footer-item" @click ="handleOptionChange('login')">Login</a>
+      <a href="#" class="card-footer-item" @click ="handleOptionChange('register')">Register</a>
+    </footer>
+  </div>
   <LoginForm v-if="loginOrRegister == 'login'" />
   <RegisterForm v-else  />
+</div>
 </template>
 
 <script setup>
@@ -24,5 +25,7 @@ const handleOptionChange = (value) =>{
 </script>
 
 <style>
-
+.login{
+  max-width: 600px;
+}
 </style>

@@ -33,14 +33,14 @@ export const useNotesStore = defineStore({
         async addNote(note) {
             let id = new Date().getTime().toString();
             let date = new Date().toISOString().slice(0, 10);
-            await setDoc(doc(db, 'notes', id), {...note, date});
+            await setDoc(doc(notesCollectionRef, id), {...note, date});
         }
         ,
         async deleteNote(noteid){
             await deleteDoc(doc(db, 'notes', noteid));
         },
         async editNote(editedValues, idToEdit){
-            await updateDoc(doc(db, 'notes', idToEdit),{
+            await updateDoc(doc(notesCollectionRef, idToEdit),{
                 title: editedValues.title,
                 description: editedValues.description,
                 priority: editedValues.priority

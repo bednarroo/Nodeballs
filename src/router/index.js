@@ -4,6 +4,8 @@ import Login from '@/views/Login.vue';
 import Stats from '@/views/Stats.vue';
 import Edit from '@/views/Edit.vue';
 import Documentation from '@/views/Documentation.vue';
+import {useAuthStore} from "@/stores/auth.js"
+
 
 
 
@@ -29,7 +31,20 @@ const router = createRouter({
     routes,
 });
 
-router.beforeEach((to) => {
+router.beforeEach(async(to) => {
+    const auth = useAuthStore();
+
+    if (!auth.user.id && to.name !== 'Login | Notes App'){
+        return {
+            name:"Login | Notes App"
+        }
+    }
+    if (auth.user.id && to.name === 'Login | Notes App'){
+        return {
+            name: false
+        }
+    }
+
     document.title = to.name;
   });
 

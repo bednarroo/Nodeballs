@@ -1,6 +1,6 @@
 <template>
-        
-        <div class="mt-6	">
+        <div class="px-5">
+          <div class="mt-6	">
     <h2 class="is-size-1  has-text-centered">Documentation</h2>
     <p class="is-size-5 mt-5	">This is part of Sebastian Wuczkowski <strong>portfolio</strong> If you want to check more please check Github or Linkedin. This project was created from scratch based on external libralers! The whole project was created as a inspiration of one Youtube video. </p>
   </div>
@@ -21,7 +21,7 @@
     <li>TypeScript</li>
   </ul>
   </div>
- 
+</div>
  
   </template>
   

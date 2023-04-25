@@ -48,7 +48,7 @@
   </template>
   
   <script setup>
-  import {ref, computed, reactive, onMounted} from 'vue'
+  import {ref, computed, reactive} from 'vue'
   
   import Card from '@/components/Card.vue';
   import AddElementForm from '@/components/AddElementForm.vue';
@@ -57,11 +57,8 @@
   import Order from '@/components/Order.vue'
   import {useNotesStore} from '@/stores/notes.js';
 
-// Mounted
 
-  onMounted(()=>{
-    notes.getNotes()
-  })
+
 
   const notes = useNotesStore();
   const isPopUpOpened = ref(false);

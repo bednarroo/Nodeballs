@@ -1,9 +1,13 @@
 import { defineStore } from 'pinia';
 import { collection, onSnapshot, setDoc, doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { db } from '@/js/firebase';
+import {useAuthStore} from "@/stores/auth.js"
 
 
-const notesCollectionRef = collection(db, "notes");
+
+let notesCollectionRef;
+let getOnSnapshot;
+
 
 export const useNotesStore = defineStore({
     id: 'notes',
@@ -18,9 +22,18 @@ export const useNotesStore = defineStore({
             return state.notes.find((note) => note.id === id)
           },
     },
-    actions: {
+    actions:
+    {
+    init(){
+        const auth = useAuthStore();
+        const userid = auth.user.id;
+        console.log(userid)
+        notesCollectionRef = collection(db, "users", userid, "notes");
+        this.getNotes()
+
+    },
      async getNotes(){
-            onSnapshot(notesCollectionRef, (querySnapshot) => {
+        getOnSnapshot = onSnapshot(notesCollectionRef, (querySnapshot) => {
                 const notes = []
                 querySnapshot.forEach((doc) => {
                 notes.push({...doc.data(), id: doc.id})
@@ -30,6 +43,10 @@ export const useNotesStore = defineStore({
               }); 
               
         },
+    cleanNotes(){
+        this.notes = []
+       if(getOnSnapshot) getOnSnapshot();
+    },
         async addNote(note) {
             let id = new Date().getTime().toString();
             let date = new Date().toISOString().slice(0, 10);
@@ -37,7 +54,7 @@ export const useNotesStore = defineStore({
         }
         ,
         async deleteNote(noteid){
-            await deleteDoc(doc(db, 'notes', noteid));
+            await deleteDoc(doc(notesCollectionRef, noteid));
         },
         async editNote(editedValues, idToEdit){
             await updateDoc(doc(notesCollectionRef, idToEdit),{

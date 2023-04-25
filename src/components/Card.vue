@@ -62,9 +62,20 @@ const priorityClass = computed(() => {
 
 </script>
 
-<style>
-.card{
-  min-width: 400px
+<style scoped>
+
+
+@media screen and (max-width: 400px) {
+  .card{
+  width: 80vw
+  }
+  footer{
+   display: flex;
+   flex-direction: column;
+  }
+  footer > a > button{
+    width: 100%;
+  }
 }
 
 .priority{

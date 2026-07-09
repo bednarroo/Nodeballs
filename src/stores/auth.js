@@ -18,7 +18,7 @@ export const useAuthStore = defineStore("auth",{
                     this.user.id = user.uid;
                     this.user.email = user.email;
                     this.router.push('/');
-                    notes.init();
+                    notes.init(user.uid);
                 }else{
                     this.user = {};
                     this.router.replace('/login')

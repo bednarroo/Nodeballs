@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia';
 import { collection, onSnapshot, setDoc, doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { db } from '@/js/firebase';
-import {useAuthStore} from "@/stores/auth.js"
 
 
 
@@ -24,11 +23,9 @@ export const useNotesStore = defineStore({
     },
     actions:
     {
-    init(){
-        const auth = useAuthStore();
-        const userid = auth.user.id;
-        console.log(userid)
-        notesCollectionRef = collection(db, "users", userid, "notes");
+    init(userId){
+        console.log(userId)
+        notesCollectionRef = collection(db, "users", userId, "notes");
         this.getNotes()
 
     },

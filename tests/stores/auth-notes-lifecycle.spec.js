@@ -80,7 +80,7 @@ describe('auth notes lifecycle', () => {
       email: 'person@example.com',
     });
     expect(auth.router.push).toHaveBeenCalledWith('/');
-    expect(initNotes).toHaveBeenCalledTimes(1);
+    expect(initNotes).toHaveBeenCalledWith('user-123');
     expect(cleanNotes).not.toHaveBeenCalled();
   });
 
@@ -108,14 +108,9 @@ describe('auth notes lifecycle', () => {
   });
 
   it('builds the notes collection path from the current auth user id', () => {
-    const auth = useAuthStore();
     const notes = useNotesStore();
-    auth.user = {
-      id: 'user-456',
-      email: 'person@example.com',
-    };
 
-    notes.init();
+    notes.init('user-456');
 
     expect(firebaseMocks.collection).toHaveBeenCalledWith(
       firebaseMocks.db,

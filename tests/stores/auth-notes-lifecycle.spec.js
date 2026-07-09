@@ -123,4 +123,12 @@ describe('auth notes lifecycle', () => {
       expect.any(Function),
     );
   });
+
+  it('fails before creating a notes collection without a user id', () => {
+    const notes = useNotesStore();
+
+    expect(() => notes.init()).toThrow('notes.init requires a user id');
+    expect(firebaseMocks.collection).not.toHaveBeenCalled();
+    expect(firebaseMocks.onSnapshot).not.toHaveBeenCalled();
+  });
 });

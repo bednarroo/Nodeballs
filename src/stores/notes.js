@@ -24,6 +24,9 @@ export const useNotesStore = defineStore({
     actions:
     {
     init(userId){
+        if(!userId){
+            throw new Error("notes.init requires a user id");
+        }
         console.log(userId)
         notesCollectionRef = collection(db, "users", userId, "notes");
         this.getNotes()

@@ -1,0 +1,32 @@
+{
+  "package": "@przeprogramowani/10x-cli",
+  "version": "1.10.0",
+  "manifestVersion": 3,
+  "lastApplied": "2026-07-08T14:45:51.239Z",
+  "lessonId": "m4l3",
+  "course": "10xdevs3",
+  "tool": "codex",
+  "files": {
+    "skills": {},
+    "prompts": [
+      "m4l3-1-research-with-map.md",
+      "m4l3-2-ast-grep-verification.md"
+    ],
+    "configs": [],
+    "promptHashes": {
+      "m4l3-1-research-with-map.md": "5719a7b8e2fe4bcb031e179a89ab93e16b44b51d1c65cb67d0d1df868b37648e",
+      "m4l3-2-ast-grep-verification.md": "2b19eb0fc09bafb3174a879e33d6307366b097a6ffc14ae188418a8efff86a9f"
+    }
+  },
+  "lessons": {
+    "m4l3": {
+      "appliedAt": "2026-07-08T14:45:51.238Z",
+      "skills": {},
+      "prompts": [
+        "m4l3-1-research-with-map.md",
+        "m4l3-2-ast-grep-verification.md"
+      ],
+      "configs": []
+    }
+  }
+}
